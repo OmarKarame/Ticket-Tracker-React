@@ -13,9 +13,9 @@ const MainContainer = (props) => {
     let index = 0;
 
     let filteredTeam = team;
-    let isFiltered = false;
+    const [isFiltered, setIsFiltered] = useState(false);
 
-    let cardsJSX = team.map((member) => {
+    const [cardsJSX, setCardsJSX] = useState(team.map((member) => {
       index++
       if(index == 3){
         index = 0;
@@ -25,44 +25,36 @@ const MainContainer = (props) => {
           <Card key = {member.id} name = {member.name} role = {member.role} image = {images[index]} className="card__contents"/>
         </>
       )
-    })
+    }))
 
     const filterTeam = (str) => {
-
-        if (isFiltered){
-          if (str != ""){
-            console.log(str);
-            filteredTeam = team.filter((member) => member.name.startsWith(str))
-
-            let cardsFilteredJSX = filteredTeam.map((member) => {
-              index++
-              if(index == 3){
-                index = 0;
-              }
-              return (
-                <>
-                  <Card key = {member.id} name = {member.name} role = {member.role} image = {images[index]} className="card__contents"/>
-                </>
-              )
-            })
+      if (str != ""){
+        filteredTeam = team.filter((member) => member.name.toLowerCase().startsWith(str))
+        setCardsJSX(cardsJSX => cardsJSX = filteredTeam.map((member) => {
+          index++
+          if(index == 3){
+            index = 0;
           }
-          else{
-            isFiltered = false;
+          return (
+            <>
+              <Card key = {member.id} name = {member.name} role = {member.role} image = {images[index]} className="card__contents"/>
+            </>
+          )
+        }))
+      }
+      else {
+        setCardsJSX(cardsJSX => cardsJSX = team.map((member) => {
+          index++
+          if(index == 3){
+            index = 0;
           }
-        }
-        else {
-          cardsJSX = team.map((member) => {
-            index++
-            if(index == 3){
-              index = 0;
-            }
-            return (
-              <>
-                <Card key = {member.id} name = {member.name} role = {member.role} image = {images[index]} className="card__contents"/>
-              </>
-            )
-          })
-        }
+          return (
+            <>
+              <Card key = {member.id} name = {member.name} role = {member.role} image = {images[index]} className="card__contents"/>
+            </>
+          )
+        }))
+      }
     }
 
   return (
@@ -71,8 +63,7 @@ const MainContainer = (props) => {
       <div className='search'>
         <h2 className='search__header'>Search</h2>
         <input type="text" className='search__bar' onChange={(e) => {
-              isFiltered = false;
-              filterTeam(e.target.value)
+              filterTeam(e.target.value.toLowerCase());
           }} />
       </div>
       <div className="add-button">

@@ -12,6 +12,7 @@
     background-color: rgb(255, 255, 255, 0.2);
     border-radius: 1rem;
     margin: 1rem;
+    min-height: 100vh
 }
 
 .header{
@@ -23,10 +24,10 @@
     .search{
         display: flex;
         align-items: center;
-        width: 25%;
+        width: 45%;
         &__bar{
             height: 2rem;
-            width: 21rem;
+            width: 100%;
             border-radius: 1rem;
             font-size: 2rem;
             margin: 2rem 0rem;
@@ -43,7 +44,7 @@
             padding: 1rem;
             background-color: transparent;
             border: none;
-            color: white;
+            color: $color-secondary;
         }
         
     }
