@@ -1,0 +1,22 @@
+@use '../../../assets/sass/variables.scss' as *;
+
+.card-heading{
+    background-color: $color-primary;
+    width: 100%;
+    border-radius: 1rem 1rem 0rem 0rem;
+    &__name{
+        color: $color-white;
+        font-family: $font-info;
+        font-size: 2rem;
+        padding: 0rem 1rem;
+        margin: 2rem 0rem 1rem 0rem;
+    }
+    &__role{
+        color: $color-secondary;
+        font-family: $font-info;
+        font-size: 1.5rem;
+        padding: 0rem 1rem;
+        margin: 1rem 0rem;
+    }
+    z-index: 1;
+}

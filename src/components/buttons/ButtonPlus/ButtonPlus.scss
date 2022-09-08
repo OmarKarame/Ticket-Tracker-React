@@ -1,0 +1,25 @@
+@use '../../../assets/sass/_variables.scss' as *;
+
+.plus-clicked{
+    font-size: 2rem;
+    color: $color-secondary;
+    padding: 1rem 1.8rem;
+    background-color: $color-see-through-black;
+    border-radius: 0rem 2rem 2rem 0rem;
+    margin: 0;
+    border: none;
+}
+
+.plus{
+    font-size: 2rem;
+    color: $color-secondary;
+    padding: 1rem 1.8rem;
+    background-color: $color-black;
+    border-radius: 0rem 2rem 2rem 0rem;
+    margin: 0;
+    border: none;
+}
+
+// .active{
+
+// }

@@ -1,0 +1,22 @@
+@use '../../assets/sass/variables.scss' as *;
+
+.card{
+    // background-image: url('../../assets/images/image1.jpeg');
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 30rem;
+    width: 18rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    z-index: 1;
+}
+
+.card__image{
+    position: absolute;
+    height: 30rem;
+    width: 18rem;
+}

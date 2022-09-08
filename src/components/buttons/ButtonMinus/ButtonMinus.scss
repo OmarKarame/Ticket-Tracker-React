@@ -1,0 +1,21 @@
+@use '../../../assets/sass/variables.scss' as *;
+
+.minus{
+    font-size: 2rem;
+    color: $color-white;
+    background-color: $color-see-through-black;
+    padding: 1rem 1.8rem;
+    border-radius: 2rem 0rem 0rem 2rem;
+    margin: 0;
+    border: none;
+}
+
+.minus-clicked{
+    font-size: 2rem;
+    color: $color-white;
+    background-color: $color-black;
+    padding: 1rem 1.8rem;
+    border-radius: 2rem 0rem 0rem 2rem;
+    margin: 0;
+    border: none;
+}

@@ -1,0 +1,15 @@
+@use '../../../assets/sass/variables.scss' as *;
+
+#page-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+    font-family: sans-serif;
+    font-size: 2rem;
+    margin: 3rem 0rem;
+}
+
+.second-word{
+    color: $color-secondary;
+}

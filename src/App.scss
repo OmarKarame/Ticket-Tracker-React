@@ -1,5 +1,25 @@
+@use './assets/sass/variables.scss' as *;
+
 .app {
-  height: 100vh;
+  height: auto;
   width: 100vw;
-  background-color: aqua;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $color-background;
+}
+
+@media screen and (max-width: 952px) {
+  .app {
+    height: auto;
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $color-background;
+  }
 }
