@@ -14,7 +14,10 @@ const MainContainer = (props) => {
     let index = 0;
     const [isAddingCard, setIsAddingCard] = useState(false);
     const [buttonClassName, setButtonClassName] = useState("add")
-    const [cardsJSX, setCardsJSX] = useState(team.map((member) => {
+    const [cardName, setCardName] = useState("");
+    const [cardRole, setCardRole] = useState("");
+    const [newTeam, setNewTeam] = useState([...team]);
+    const [cardsJSX, setCardsJSX] = useState(newTeam.map((member) => {
       index++
       if(index == 3){
         index = 0;
@@ -26,20 +29,20 @@ const MainContainer = (props) => {
       )
     }))
 
-    const toggleDisplayAddCard = () => {
-        if (buttonClassName == "add") {
-          setButtonClassName(buttonClassName => buttonClassName = "close");
-        }
-        else if (buttonClassName == "close") {
-          setButtonClassName(buttonClassName => buttonClassName = "add");
-        }
-      console.log(buttonClassName);
+    const handleNewCardButtonPress = () => {
+      
+      if (buttonClassName == "add") {
+        setButtonClassName(buttonClassName => buttonClassName = "close");
+      }
+      else if (buttonClassName == "close") {
+        setButtonClassName(buttonClassName => buttonClassName = "add");
+      }
       setIsAddingCard(isAddingCard => !isAddingCard)
     }
 
     const filterTeam = (str) => {
       if (str != ""){
-        let filteredTeam = team.filter((member) => member.name.toLowerCase().startsWith(str))
+        let filteredTeam = newTeam.filter((member) => member.name.toLowerCase().startsWith(str))
         setCardsJSX(cardsJSX => cardsJSX = filteredTeam.map((member) => {
           //index++
           if(index == 3){
@@ -53,7 +56,7 @@ const MainContainer = (props) => {
         }))
       }
       else {
-        setCardsJSX(cardsJSX => cardsJSX = team.map((member) => {
+        setCardsJSX(cardsJSX => cardsJSX = newTeam.map((member) => {
           index++
           if(index == 3){
             index = 0;
@@ -77,11 +80,11 @@ const MainContainer = (props) => {
           }} />
       </div>
       <div className="add-button">
-        <button className={buttonClassName} onClick={toggleDisplayAddCard}>+</button>
+        <button className={buttonClassName} onClick={handleNewCardButtonPress}>+</button>
       </div>
     </div>
     <div className='main-container'>
-      {isAddingCard ? <AddCardContainer toggleDisplayAddCard={toggleDisplayAddCard}/> : cardsJSX}
+      {isAddingCard ? <AddCardContainer toggleDisplayAddCard={handleNewCardButtonPress}/> : cardsJSX}
     </div>
     </>
   )

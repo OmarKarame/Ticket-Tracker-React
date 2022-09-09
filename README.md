@@ -9,38 +9,25 @@
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+This Porject is a website that is built with react.js. The aim of the project is to display cards that contain members, their roles, and the number of ticets they have to complete. Each card must be a component of its own, and each card must maintain it's own state. In other words, each card can have a different number being displayed by using the buttons in each card. 
 
-## Getting Started <a name = "getting_started"></a>
+One extension that was added was the fact that you can search for a card by the name.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+## Getting Started <a name = "getting_started">
+
+</a>
+
+Open the project in vscode. Open a new terminal. Type "  npm start  " in the terminal. Press the y key on the keyboard. 
 
 ### Prerequisites
 
 What things you need to install the software and how to install them.
 
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
+Make sure vscode is installed.
+Make sure node.js is also installed.
+Once these two are installed, cd into the ticket tracker folder.
+Type "  npm install -g npm  " in the terminal.
 
 ## Usage <a name = "usage"></a>
 
-Add notes about how to use the system.
+Once the website is up and running on a local server, the user can click on the buttons of each card to increase or decrase the number of tickets in each card. The number cannot go below 0. The button that was used last in each card will turn black, and the other will turn grey. The user can type in the names of the people to show their card in the input box next to "search". The user can also open up a pop up that should allow the user to add cards with new names and roles but that doesnt work so the user can only close it and open the pop up.

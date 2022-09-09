@@ -33,7 +33,7 @@ const CounterContainer = () => {
 
   return (
     <div className="counter">
-        <h1 className="counter__header">Tasks</h1>
+        <h1 className="counter__header">Tickets</h1>
         <h2 className="counter__number">{number}</h2>
         <div className="buttons">
             <ButtonMinus changeNumber={changeNumber} isAdding={isAdding} minusButtonClassName={minusButtonClassName} isClicked={isClicked}/>

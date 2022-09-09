@@ -2,7 +2,7 @@ import {useState} from 'react';
 import './AddCardContainer.scss';
 
 
-const AddCardContainer = ({toggleDisplayAddCard}) => {
+const AddCardContainer = ({handleNewCardButtonPress}) => {
   return (
     <div className='add-card-form'>
         <div className='info'>
@@ -13,7 +13,7 @@ const AddCardContainer = ({toggleDisplayAddCard}) => {
             <h3>Title</h3>
             <input className='title-input card-input' type="text" />
         </div>
-        <button className='add-card' onClick={toggleDisplayAddCard}>Add new card</button>
+        <button className='add-card' onClick={handleNewCardButtonPress}>Add new card</button>
     </div>
   )
 }
