@@ -1,0 +1,49 @@
+@use '../../assets/sass/variables' as *;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.add-card-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+    width: 70vw;
+    background-color: $color-secondary;
+    border-radius: 1rem;
+    z-index: 10;
+}
+
+.card-input{
+    height: 2.5rem;
+    width: 90%;
+    border-radius: 1rem;
+    font-size: 2rem;
+    padding: 0rem 0.5rem;
+}
+
+.info{
+    height: 2.5rem;
+    width: 80%;
+    border-radius: 1rem;
+}
+
+h3{
+    padding: 0.5rem 0rem;
+    font-size: 2rem;
+    color: white;
+    font-size: 2rem;
+}
+
+
+.add-card{
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 2rem;
+}

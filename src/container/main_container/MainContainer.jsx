@@ -4,6 +4,7 @@ import image1 from '../../assets/images/image1.jpeg'
 import image2 from '../../assets/images/image2.jpeg'
 import image3 from '../../assets/images/image3.jpeg'
 import { useState } from 'react'
+import AddCardContainer from '../add_card_container/AddCardContainer.jsx'
 
 const images = [image1, image2, image3];
 
@@ -11,10 +12,8 @@ const images = [image1, image2, image3];
 const MainContainer = (props) => {
     const {team} = props;
     let index = 0;
-
-    let filteredTeam = team;
-    const [isFiltered, setIsFiltered] = useState(false);
-
+    const [isAddingCard, setIsAddingCard] = useState(false);
+    const [buttonClassName, setButtonClassName] = useState("add")
     const [cardsJSX, setCardsJSX] = useState(team.map((member) => {
       index++
       if(index == 3){
@@ -27,11 +26,22 @@ const MainContainer = (props) => {
       )
     }))
 
+    const toggleDisplayAddCard = () => {
+        if (buttonClassName == "add") {
+          setButtonClassName(buttonClassName => buttonClassName = "close");
+        }
+        else if (buttonClassName == "close") {
+          setButtonClassName(buttonClassName => buttonClassName = "add");
+        }
+      console.log(buttonClassName);
+      setIsAddingCard(isAddingCard => !isAddingCard)
+    }
+
     const filterTeam = (str) => {
       if (str != ""){
-        filteredTeam = team.filter((member) => member.name.toLowerCase().startsWith(str))
+        let filteredTeam = team.filter((member) => member.name.toLowerCase().startsWith(str))
         setCardsJSX(cardsJSX => cardsJSX = filteredTeam.map((member) => {
-          index++
+          //index++
           if(index == 3){
             index = 0;
           }
@@ -67,15 +77,11 @@ const MainContainer = (props) => {
           }} />
       </div>
       <div className="add-button">
-        <button className='add'>+</button>
+        <button className={buttonClassName} onClick={toggleDisplayAddCard}>+</button>
       </div>
     </div>
-    
     <div className='main-container'>
-      {cardsJSX}
-    </div>
-    <div>
-
+      {isAddingCard ? <AddCardContainer toggleDisplayAddCard={toggleDisplayAddCard}/> : cardsJSX}
     </div>
     </>
   )

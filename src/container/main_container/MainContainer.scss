@@ -46,7 +46,14 @@
             border: none;
             color: $color-secondary;
         }
-        
+        .close{
+            font-size: 4rem;
+            padding: 1rem;
+            background-color: transparent;
+            border: none;
+            color: $color-secondary;
+            transform: rotate(45deg);
+        }
     }
 
 }
