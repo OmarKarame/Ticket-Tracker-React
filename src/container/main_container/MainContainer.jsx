@@ -16,7 +16,13 @@ const MainContainer = (props) => {
     const [buttonClassName, setButtonClassName] = useState("add")
     const [cardName, setCardName] = useState("");
     const [cardRole, setCardRole] = useState("");
-    const [newTeam, setNewTeam] = useState([...team]);
+    const [newTeam, setNewTeam] = useState([...team])
+    const newMemeber = {
+      id: newTeam.length + 1,
+      name: cardName,
+      role: cardRole
+    }
+
     const [cardsJSX, setCardsJSX] = useState(newTeam.map((member) => {
       index++
       if(index == 3){
@@ -29,15 +35,38 @@ const MainContainer = (props) => {
       )
     }))
 
+    const displayNewCards = () => {
+      setCardsJSX(cardsJSX => cardsJSX = newTeam.map((member) => {
+        index++
+        if(index == 3){
+          index = 0;
+        }
+        return (
+          <>
+            <Card key = {member.id} name = {member.name} role = {member.role} image = {images[index]} className="card__contents"/>
+          </>
+        )
+      }))
+    }
+
+    const handleAddName = (e) => {
+      setCardName(e.target.value);
+    }
+
+    const handleAddRole = (e) => {
+      setCardRole(e.target.value);
+    }
+
     const handleNewCardButtonPress = () => {
-      
       if (buttonClassName == "add") {
         setButtonClassName(buttonClassName => buttonClassName = "close");
       }
       else if (buttonClassName == "close") {
         setButtonClassName(buttonClassName => buttonClassName = "add");
       }
-      setIsAddingCard(isAddingCard => !isAddingCard)
+      setIsAddingCard(!isAddingCard)
+      setNewTeam(newTeam.concat(newMemeber))
+      displayNewCards()
     }
 
     const filterTeam = (str) => {
@@ -80,11 +109,11 @@ const MainContainer = (props) => {
           }} />
       </div>
       <div className="add-button">
-        <button className={buttonClassName} onClick={handleNewCardButtonPress}>+</button>
+        <button className={buttonClassName} onClick={handleNewCardButtonPress} >+</button>
       </div>
     </div>
     <div className='main-container'>
-      {isAddingCard ? <AddCardContainer toggleDisplayAddCard={handleNewCardButtonPress}/> : cardsJSX}
+      {isAddingCard ? <AddCardContainer handleNewCardButtonPress={handleNewCardButtonPress} handleAddName={handleAddName} handleAddRole={handleAddRole}/> : cardsJSX}
     </div>
     </>
   )
